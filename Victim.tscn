@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Victim.gd" type="Script" id=1]
+[ext_resource path="res://art/victim.png" type="Texture" id=2]
+[ext_resource path="res://HelpPopup.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 23.5082
+height = 13.3751
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 46.7253, 30.073 )
+
+[node name="Victim" type="StaticBody2D" index="0"]
+
+input_pickable = false
+collision_layer = 8
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+
+position = Vector2( 0.923551, 2.1812 )
+scale = Vector2( 0.689704, 1.06571 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="." index="1"]
+
+texture = ExtResource( 2 )
+
+[node name="InteractionArea" type="Area2D" parent="." index="2"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" index="0"]
+
+position = Vector2( 0, 1.793 )
+scale = Vector2( 1, 1.05421 )
+shape = SubResource( 2 )
+
+[node name="HelpPopup" parent="." index="3" instance=ExtResource( 3 )]
+
+margin_left = 12.0
+margin_top = -95.0
+margin_right = 52.0
+margin_bottom = -55.0
+
+[node name="PopupTimer" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+

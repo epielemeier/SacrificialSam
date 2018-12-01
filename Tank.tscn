@@ -33,6 +33,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Visibility" type="Area2D" parent="." index="1"]
 
+visible = false
 scale = Vector2( 5, 5 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )

@@ -1,5 +1,8 @@
 extends KinematicBody2D
-# copied from https://github.com/godotengine/godot-demo-projects/blob/master/2d/kinematic_character/player.gd
+
+signal interacting
+
+# copied and modified from https://github.com/godotengine/godot-demo-projects/blob/master/2d/kinematic_character/player.gd
 const SPEEDUP = 2
 # Member variables
 const GRAVITY = 1000.0 * SPEEDUP # pixels/second/second
@@ -37,8 +40,12 @@ func _physics_process(delta):
 	var walk_right = Input.is_action_pressed("ui_right")
 	var jump = Input.is_action_pressed("ui_select")
 	var dash = Input.is_action_pressed("dash")
+	var interact = Input.is_action_just_pressed("interact")
 	
 	var stop = true
+	
+	if interact:
+		emit_signal("interacting", self)
 
 	if walk_left:
 		if velocity.x <= WALK_MIN_SPEED and velocity.x > -WALK_MAX_SPEED:

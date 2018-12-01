@@ -7,6 +7,7 @@ extends Node
 func _ready():
 	for child in $Spikes.get_children():
 		child.connect("body_entered", self, "_on_Spikes_body_entered")
+	$Hero.connect("interacting", self, "_on_Hero_interacting")
 	$Tank.connect("bullet_hit", self, "_on_Bullet_hit")
 	$HealthControl.connect("zero_health", self, "_on_HealthControl_zero_health")
 
@@ -26,3 +27,7 @@ func _on_Bullet_hit(body):
 
 func _on_HealthControl_zero_health():
 	get_tree().reload_current_scene()
+
+func _on_Hero_interacting(hero):
+		if $Victim.is_interacting_with(hero):
+			$Victim.interact()
