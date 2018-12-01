@@ -1,32 +1,49 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Hero.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Tile.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Level.gd" type="Script" id=1]
+[ext_resource path="res://Hero.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Tile.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Spikes.tscn" type="PackedScene" id=4]
 
-[node name="Level" type="Node"]
+[node name="Level" type="Node" index="0"]
 
-[node name="Hero" parent="." index="0" instance=ExtResource( 1 )]
+script = ExtResource( 1 )
 
-position = Vector2( 435.398, 413.857 )
+[node name="Hero" parent="." index="0" instance=ExtResource( 2 )]
 
-[node name="Tile" parent="." index="1" instance=ExtResource( 2 )]
+position = Vector2( 433.398, 381.857 )
 
-position = Vector2( 358.167, 322.974 )
+[node name="Tiles" type="Node2D" parent="." index="1"]
+
+[node name="Tile" parent="Tiles" index="0" instance=ExtResource( 3 )]
+
+position = Vector2( 360.888, 318.374 )
 scale = Vector2( 4.93136, 1 )
 
-[node name="Tile2" parent="." index="2" instance=ExtResource( 2 )]
+[node name="Tile2" parent="Tiles" index="1" instance=ExtResource( 3 )]
 
 position = Vector2( 714.863, 431.674 )
 scale = Vector2( 1, 2.03347 )
 
-[node name="Tile3" parent="." index="3" instance=ExtResource( 2 )]
+[node name="Tile3" parent="Tiles" index="2" instance=ExtResource( 3 )]
 
-position = Vector2( 171.837, 220.381 )
-scale = Vector2( 1, 7.33014 )
+position = Vector2( 177.226, 241.929 )
+scale = Vector2( 1, 7.92867 )
 
-[node name="Tile4" parent="." index="4" instance=ExtResource( 2 )]
+[node name="Tile4" parent="Tiles" index="3" instance=ExtResource( 3 )]
 
-position = Vector2( 594.473, 463.843 )
-scale = Vector2( 9.89055, 1 )
+position = Vector2( 594.473, 459.421 )
+scale = Vector2( 9.89055, 1.13817 )
+
+[node name="Tile5" parent="Tiles" index="4" instance=ExtResource( 3 )]
+
+position = Vector2( 211.413, 525.485 )
+scale = Vector2( 2.0716, 1 )
+
+[node name="Spikes" type="Node2D" parent="." index="2"]
+
+[node name="Spikes" parent="Spikes" index="0" instance=ExtResource( 4 )]
+
+position = Vector2( 243.132, 460.537 )
 
 
