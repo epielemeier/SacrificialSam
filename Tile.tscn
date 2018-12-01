@@ -7,7 +7,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Tile" type="StaticBody2D"]
+[node name="Tile" type="StaticBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -21,12 +21,13 @@ _sections_unfolded = [ "Transform" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
 position = Vector2( 0.149949, 0.0831103 )
-scale = Vector2( 1.22187, 1.22187 )
+scale = Vector2( 3, 3 )
 shape = SubResource( 1 )
-_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
 
+scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 
