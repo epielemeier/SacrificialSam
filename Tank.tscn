@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Tank.gd" type="Script" id=1]
-[ext_resource path="res://art/tank.png" type="Texture" id=2]
-[ext_resource path="res://art/tank_head.png" type="Texture" id=3]
+[ext_resource path="res://Bullet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://art/tank.png" type="Texture" id=3]
+[ext_resource path="res://art/tank_head.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -14,13 +15,15 @@ extents = Vector2( 10, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Tank" type="KinematicBody2D" index="0"]
+[node name="Tank" type="KinematicBody2D"]
 
 input_pickable = false
-collision_layer = 1
+collision_layer = 2
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
+Bullet = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
@@ -36,7 +39,7 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-collision_mask = 2
+collision_layer = 0
 audio_bus_override = false
 audio_bus_name = "Master"
 _sections_unfolded = [ "Collision", "Transform" ]
@@ -49,22 +52,20 @@ shape = SubResource( 2 )
 [node name="Sprite" type="Sprite" parent="." index="2"]
 
 scale = Vector2( 2, 2 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="HeadSprite" type="Sprite" parent="Sprite" index="0"]
 
 position = Vector2( 0.0495944, -6.58285 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 _sections_unfolded = [ "Offset", "Transform" ]
 
-[node name="RotationTween" type="Tween" parent="." index="3"]
+[node name="ShootTimer" type="Timer" parent="." index="3"]
 
-repeat = false
-playback_process_mode = 1
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
 
 

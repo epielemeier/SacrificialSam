@@ -16,6 +16,8 @@ position = Vector2( 433.398, 381.857 )
 
 [node name="Tiles" type="Node2D" parent="." index="1"]
 
+editor/display_folded = true
+
 [node name="Tile" parent="Tiles" index="0" instance=ExtResource( 3 )]
 
 position = Vector2( 360.888, 318.374 )
@@ -42,6 +44,8 @@ position = Vector2( 211.413, 525.485 )
 scale = Vector2( 2.0716, 1 )
 
 [node name="Spikes" type="Node2D" parent="." index="2"]
+
+editor/display_folded = true
 
 [node name="Spikes" parent="Spikes" index="0" instance=ExtResource( 4 )]
 
