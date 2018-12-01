@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Level.gd" type="Script" id=1]
 [ext_resource path="res://Hero.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Tile.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Spikes.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Tank.tscn" type="PackedScene" id=5]
+[ext_resource path="res://HealthControl.tscn" type="PackedScene" id=6]
 
-[node name="Level" type="Node"]
+[node name="Level" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -54,5 +55,7 @@ position = Vector2( 243.132, 460.537 )
 [node name="Tank" parent="." index="3" instance=ExtResource( 5 )]
 
 position = Vector2( 645.992, 383.268 )
+
+[node name="HealthControl" parent="." index="4" instance=ExtResource( 6 )]
 
 

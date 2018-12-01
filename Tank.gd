@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 export (PackedScene) var Bullet
 
+signal bullet_hit
+
 var target
 var can_shoot = true
 
@@ -18,6 +20,7 @@ func _process(delta):
 
 func shoot(pos):
 	var b = Bullet.instance()
+	b.connect("body_entered", self, "_on_Bullet_body_entered")
 	var a = (pos - global_position).angle()
 	var offset = $Sprite/HeadSprite.position + Vector2(10,5)
 	b.start($Sprite/HeadSprite.to_global(offset), a + rand_range(-0.05, 0.05))
@@ -41,3 +44,6 @@ func _on_Visibility_body_exited(body):
 
 func _on_ShootTimer_timeout():
 	can_shoot = true
+
+func _on_Bullet_body_entered(body):
+	emit_signal("bullet_hit", body)
