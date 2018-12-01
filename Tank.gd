@@ -12,11 +12,21 @@ func _ready():
 	$Visibility.connect("body_exited", self, "_on_Visibility_body_exited")
 	$ShootTimer.connect("timeout", self, "_on_ShootTimer_timeout")
 
-func _process(delta):
+func _physics_process(delta):
 	if target:
-		rotate_head((target.position - position).angle())
-		if can_shoot:
-			shoot(target.position)
+		aim()
+
+func aim():
+	var space_state = get_world_2d().direct_space_state
+	var result = space_state.intersect_ray(position, target.position,
+		[self], collision_mask)
+	if result:
+		var hit_pos = result.position
+		if result.collider == target:
+			rotate_head((target.position - position).angle())
+			if can_shoot:
+				shoot(target.position)
+
 
 func shoot(pos):
 	var b = Bullet.instance()
