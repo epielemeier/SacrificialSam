@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Hero.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Tile.tscn" type="PackedScene" id=2]
+
+[node name="Level" type="Node" index="0"]
+
+[node name="Hero" parent="." index="0" instance=ExtResource( 1 )]
+
+position = Vector2( 435.398, 413.857 )
+
+[node name="Tile" parent="." index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 384.23, 322.974 )
+scale = Vector2( 14.094, 1 )
+
+[node name="Tile2" parent="." index="2" instance=ExtResource( 2 )]
+
+position = Vector2( 714.863, 251.054 )
+scale = Vector2( 1, 12.8328 )
+
+[node name="Tile3" parent="." index="3" instance=ExtResource( 2 )]
+
+position = Vector2( 171.837, 220.381 )
+scale = Vector2( 1, 7.33014 )
+
+[node name="Tile4" parent="." index="4" instance=ExtResource( 2 )]
+
+position = Vector2( 525.099, 463.843 )
+scale = Vector2( 28.0814, 1 )
+
+
