@@ -11,12 +11,12 @@ extents = Vector2( 10.7802, 10.5505 )
 
 input_pickable = false
 collision_layer = 1
-collision_mask = 1
+collision_mask = 524288
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 

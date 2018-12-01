@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Level.gd" type="Script" id=1]
 [ext_resource path="res://Hero.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Tile.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Spikes.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Tank.tscn" type="PackedScene" id=5]
 
 [node name="Level" type="Node" index="0"]
 
@@ -14,6 +15,8 @@ script = ExtResource( 1 )
 position = Vector2( 433.398, 381.857 )
 
 [node name="Tiles" type="Node2D" parent="." index="1"]
+
+editor/display_folded = true
 
 [node name="Tile" parent="Tiles" index="0" instance=ExtResource( 3 )]
 
@@ -42,8 +45,14 @@ scale = Vector2( 2.0716, 1 )
 
 [node name="Spikes" type="Node2D" parent="." index="2"]
 
+editor/display_folded = true
+
 [node name="Spikes" parent="Spikes" index="0" instance=ExtResource( 4 )]
 
 position = Vector2( 243.132, 460.537 )
+
+[node name="Tank" parent="." index="3" instance=ExtResource( 5 )]
+
+position = Vector2( 645.992, 383.268 )
 
 
