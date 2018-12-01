@@ -45,11 +45,15 @@ func _physics_process(delta):
 			force.x -= WALK_FORCE
 			stop = false
 			is_facing_left = true
+			$Sprite.flip_h = true
+			
 	elif walk_right:
 		if velocity.x >= -WALK_MIN_SPEED and velocity.x < WALK_MAX_SPEED:
 			force.x += WALK_FORCE
 			stop = false
 			is_facing_left = false
+			$Sprite.flip_h = false
+			
 	
 	if dashing:
 		if dash_time < DASH_MAX_TIME:
