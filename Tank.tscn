@@ -15,7 +15,7 @@ extents = Vector2( 10, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Tank" type="KinematicBody2D"]
+[node name="Tank" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 2
@@ -65,7 +65,7 @@ _sections_unfolded = [ "Offset", "Transform" ]
 [node name="ShootTimer" type="Timer" parent="." index="3"]
 
 process_mode = 1
-wait_time = 1.0
+wait_time = 1.5
 one_shot = false
 autostart = false
 

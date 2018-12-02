@@ -47,10 +47,13 @@ func _on_Visibility_body_entered(body):
 		return
 	target = body
 	rotate_head((target.position - position).angle())
+	if $ShootTimer.is_stopped():
+		$ShootTimer.start()
 
 func _on_Visibility_body_exited(body):
 	if body == target:
 		target = null
+		$ShootTimer.stop()
 
 func _on_ShootTimer_timeout():
 	can_shoot = true
