@@ -1,0 +1,159 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Tile.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Spikes.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Victim.tscn" type="PackedScene" id=4]
+[ext_resource path="res://PressurePlate.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Door.tscn" type="PackedScene" id=6]
+
+[node name="12_Level" index="0" instance=ExtResource( 1 )]
+
+[node name="Hero" parent="." index="0"]
+
+position = Vector2( 130, 290 )
+
+[node name="Gate" parent="." index="1"]
+
+position = Vector2( 862.249, 163.145 )
+
+[node name="Tile" parent="Tiles" index="0"]
+
+position = Vector2( 91.0982, 350 )
+scale = Vector2( 2.77818, 1 )
+
+[node name="Tile2" parent="Tiles" index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 30, 297.223 )
+scale = Vector2( 1, 7.5868 )
+
+[node name="Tile8" parent="Tiles" index="2" instance=ExtResource( 2 )]
+
+position = Vector2( 990, 272.5 )
+scale = Vector2( 1, 8.51563 )
+
+[node name="Tile6" parent="Tiles" index="3" instance=ExtResource( 2 )]
+
+position = Vector2( 442, 355.5 )
+scale = Vector2( 5.3125, 0.828125 )
+
+[node name="Tile13" parent="Tiles" index="4" instance=ExtResource( 2 )]
+
+position = Vector2( 576.31, 132 )
+scale = Vector2( 6.04097, 0.828125 )
+
+[node name="Tile19" parent="Tiles" index="5" instance=ExtResource( 2 )]
+
+position = Vector2( 901.268, 219.064 )
+scale = Vector2( 6.07814, 0.828125 )
+
+[node name="Tile17" parent="Tiles" index="6" instance=ExtResource( 2 )]
+
+position = Vector2( 598.24, 337.359 )
+scale = Vector2( 1.66992, 0.257813 )
+
+[node name="Tile14" parent="Tiles" index="7" instance=ExtResource( 2 )]
+
+position = Vector2( 736.321, 513.229 )
+scale = Vector2( 3.01002, 0.929039 )
+
+[node name="Tile15" parent="Tiles" index="8" instance=ExtResource( 2 )]
+
+position = Vector2( 765.383, 460 )
+scale = Vector2( 2.10182, 0.828125 )
+
+[node name="Tile16" parent="Tiles" index="9" instance=ExtResource( 2 )]
+
+position = Vector2( 790.52, 410 )
+scale = Vector2( 1.29555, 0.828125 )
+
+[node name="Tile7" parent="Tiles" index="10" instance=ExtResource( 2 )]
+
+position = Vector2( 510, 570 )
+scale = Vector2( 16.0742, 1.03125 )
+
+[node name="Tile4" parent="Tiles" index="11" instance=ExtResource( 2 )]
+
+position = Vector2( 302, 291.5 )
+scale = Vector2( 1, 2.67188 )
+
+[node name="Tile5" parent="Tiles" index="12" instance=ExtResource( 2 )]
+
+position = Vector2( 542, 154.5 )
+scale = Vector2( 1, 1.48438 )
+
+[node name="Tile18" parent="Tiles" index="13" instance=ExtResource( 2 )]
+
+position = Vector2( 737.893, 177.074 )
+scale = Vector2( 1, 2.10478 )
+
+[node name="Tile12" parent="Tiles" index="14" instance=ExtResource( 2 )]
+
+position = Vector2( 344.369, 94.6684 )
+scale = Vector2( 1.22513, 0.30818 )
+
+[node name="Tile20" parent="Tiles" index="15" instance=ExtResource( 2 )]
+
+position = Vector2( 925.943, 393.41 )
+scale = Vector2( 0.99946, 0.30818 )
+
+[node name="Tile10" parent="Tiles" index="16" instance=ExtResource( 2 )]
+
+position = Vector2( 365, 298 )
+_sections_unfolded = [ "Collision", "Transform", "Z Index" ]
+
+[node name="Tile11" parent="Tiles" index="17" instance=ExtResource( 2 )]
+
+position = Vector2( 240.001, 174 )
+_sections_unfolded = [ "Collision", "Transform", "Z Index" ]
+
+[node name="Spikes" parent="." index="3"]
+
+editor/display_folded = false
+
+[node name="Spikes" parent="Spikes" index="0"]
+
+position = Vector2( 460, 512.53 )
+scale = Vector2( 1, 0.920938 )
+
+[node name="Spikes2" parent="Spikes" index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 930, 510 )
+
+[node name="Spikes3" parent="Spikes" index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 864.857, 510 )
+
+[node name="Tanks" parent="." index="4"]
+
+editor/display_folded = false
+
+[node name="Tank" parent="Tanks" index="0"]
+
+position = Vector2( 101.67, 505.032 )
+visibility_modifier = 1.5
+
+[node name="WaterTiles" parent="." index="6"]
+
+editor/display_folded = false
+
+[node name="WaterTile" parent="WaterTiles" index="0"]
+
+position = Vector2( 862.132, 150.029 )
+scale = Vector2( 2.93122, 1.3627 )
+
+[node name="Victim" parent="." index="8" instance=ExtResource( 4 )]
+
+position = Vector2( 463.427, 298.299 )
+equipment = "Suit"
+
+[node name="PressurePlate" parent="." index="9" instance=ExtResource( 5 )]
+
+position = Vector2( 927.328, 377.991 )
+
+[node name="Door" parent="." index="10" instance=ExtResource( 6 )]
+
+position = Vector2( 575.437, 46.752 )
+scale = Vector2( 1, 1.18565 )
+
+

@@ -4,13 +4,13 @@
 [ext_resource path="res://Hero.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Gate.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Tile.tscn" type="PackedScene" id=4]
-[ext_resource path="res://WaterTile.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Spikes.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Tank.tscn" type="PackedScene" id=7]
-[ext_resource path="res://HeartCollectible.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Spikes.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Tank.tscn" type="PackedScene" id=6]
+[ext_resource path="res://HeartCollectible.tscn" type="PackedScene" id=7]
+[ext_resource path="res://WaterTile.tscn" type="PackedScene" id=8]
 [ext_resource path="res://HealthControl.tscn" type="PackedScene" id=9]
 
-[node name="Level" type="Node"]
+[node name="Level" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -29,37 +29,37 @@ position = Vector2( 240, 260 )
 position = Vector2( 340, 330 )
 scale = Vector2( 4.93136, 1 )
 
-[node name="WaterTiles" type="Node" parent="." index="3"]
+[node name="Spikes" type="Node" parent="." index="3"]
 
 editor/display_folded = true
 
-[node name="WaterTile" parent="WaterTiles" index="0" instance=ExtResource( 5 )]
-
-position = Vector2( -346, 72 )
-
-[node name="Spikes" type="Node" parent="." index="4"]
-
-editor/display_folded = true
-
-[node name="Spikes" parent="Spikes" index="0" instance=ExtResource( 6 )]
+[node name="Spikes" parent="Spikes" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( -346, 172 )
 
-[node name="Tanks" type="Node" parent="." index="5"]
+[node name="Tanks" type="Node" parent="." index="4"]
 
 editor/display_folded = true
 
-[node name="Tank" parent="Tanks" index="0" instance=ExtResource( 7 )]
+[node name="Tank" parent="Tanks" index="0" instance=ExtResource( 6 )]
 
 position = Vector2( -346, 292 )
 
-[node name="HeartCollectibles" type="Node" parent="." index="6"]
+[node name="HeartCollectibles" type="Node" parent="." index="5"]
 
 editor/display_folded = true
 
-[node name="HeartCollectible" parent="HeartCollectibles" index="0" instance=ExtResource( 8 )]
+[node name="HeartCollectible" parent="HeartCollectibles" index="0" instance=ExtResource( 7 )]
 
 position = Vector2( -348, 400 )
+
+[node name="WaterTiles" type="Node" parent="." index="6"]
+
+editor/display_folded = true
+
+[node name="WaterTile" parent="WaterTiles" index="0" instance=ExtResource( 8 )]
+
+position = Vector2( -346, 72 )
 
 [node name="HealthControl" parent="." index="7" instance=ExtResource( 9 )]
 

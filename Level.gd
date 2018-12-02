@@ -10,8 +10,9 @@ func _ready():
 	register_spikes($Spikes.get_children())
 	register_tanks($Tanks.get_children())
 	register_heart_collectibles($HeartCollectibles.get_children())
-	#register_pressure_plate_and_door($PressurePlate, $Door)
-	if get_node("Victim") != null:
+	if has_node("PressurePlate") and has_node("Door"):
+		register_pressure_plate_and_door($PressurePlate, $Door)
+	if has_node("Victim"):
 		register_victim($Victim)
 
 func register_spikes(spike_list):
@@ -29,7 +30,7 @@ func register_heart_collectibles(heart_collectible_list):
 
 func register_pressure_plate_and_door(pressure_plate, door):
 	pressure_plate.connect("is_pressed", door, "open")
-	pressure_plate.connect("is_not_pressed", door, "close")
+	#pressure_plate.connect("is_not_pressed", door, "close")
 
 func register_victim(v):
 	v.connect("give_equipment", self, "_on_Victim_give_equipment")
