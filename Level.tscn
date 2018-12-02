@@ -9,7 +9,7 @@
 [ext_resource path="res://HealthControl.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Victim.tscn" type="PackedScene" id=8]
 
-[node name="Level" type="Node" index="0"]
+[node name="Level" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -18,6 +18,8 @@ script = ExtResource( 1 )
 position = Vector2( 374.292, 250.001 )
 
 [node name="Tiles" type="Node2D" parent="." index="1"]
+
+editor/display_folded = true
 
 [node name="Tile" parent="Tiles" index="0" instance=ExtResource( 3 )]
 

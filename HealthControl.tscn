@@ -3,7 +3,7 @@
 [ext_resource path="res://HealthControl.gd" type="Script" id=1]
 [ext_resource path="res://HeartControl.tscn" type="PackedScene" id=2]
 
-[node name="HealthControl" type="HBoxContainer" index="0"]
+[node name="HealthControl" type="HBoxContainer"]
 
 anchor_left = 0.0
 anchor_top = 0.0

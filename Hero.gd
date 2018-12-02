@@ -28,6 +28,7 @@ var dash_time = 100
 var jumping = false
 var dashing = false
 var flying = false
+var shrinking = false
 
 var prev_jump_pressed = false
 var prev_dash_pressed = false
@@ -45,11 +46,14 @@ func _physics_process(delta):
 	var fly_up = Input.is_action_pressed("ui_up") and $EquipmentManager.has_cape
 	var fly_down = Input.is_action_pressed("ui_down") and $EquipmentManager.has_cape
 	var jump = Input.is_action_pressed("ui_select")
-	var dash = Input.is_action_pressed("dash") and $EquipmentManager.has_boots
-	var interact = Input.is_action_just_pressed("interact")
+	var dash = !shrinking and Input.is_action_pressed("dash") and $EquipmentManager.has_boots
+	var interact = !shrinking and Input.is_action_just_pressed("interact")
+	var shrunk = Input.is_action_just_pressed("shrink")
 	
 	var stop = true
 	
+	if shrunk:
+		toggle_shrink()
 	if interact:
 		emit_signal("interacting", self)
 
@@ -59,6 +63,8 @@ func _physics_process(delta):
 			stop = false
 			is_facing_left = true
 			$Sprite.flip_h = true
+			if shrinking:
+				rotation -= PI/10
 			
 	elif walk_right:
 		if velocity.x >= -WALK_MIN_SPEED and velocity.x < WALK_MAX_SPEED:
@@ -66,6 +72,8 @@ func _physics_process(delta):
 			stop = false
 			is_facing_left = false
 			$Sprite.flip_h = false
+			if shrinking:
+				rotation += PI/10
 	
 	if jumping:
 		if fly_up:
@@ -109,7 +117,7 @@ func _physics_process(delta):
 		# If falling, no longer jumping
 		jumping = false
 	
-	if jump and not prev_jump_pressed and jumping and not flying:
+	if jump and not prev_jump_pressed and jumping and not flying and not shrinking:
 		flying = true
 	
 	if on_air_time < JUMP_MAX_AIRBORNE_TIME and jump and not prev_jump_pressed and not jumping:
@@ -134,6 +142,15 @@ func _physics_process(delta):
 
 func _ready():
 	$EquipmentManager.connect("change_sprite", self, "_on_EquipmentManager_change_sprite")
+
+func toggle_shrink():
+	shrinking = !shrinking
+	$ShrinkSprite.visible = shrinking
+	$Sprite.visible = !shrinking
+	$ShrinkCollisionShape2D.disabled = !shrinking
+	$CollisionShape2D.disabled = shrinking
+	rotation = 0.0
+
 
 func _on_EquipmentManager_change_sprite(file):
 	$Sprite.set_texture(load(file))

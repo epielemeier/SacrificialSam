@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Hero.gd" type="Script" id=1]
 [ext_resource path="res://EquipmentManager.gd" type="Script" id=2]
 [ext_resource path="res://art/hero.png" type="Texture" id=3]
+[ext_resource path="res://art/hero_super_size.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -15,14 +16,19 @@ height = 20.0
 custom_solver_bias = 0.0
 extents = Vector2( 15.994, 10 )
 
-[node name="Hero" type="KinematicBody2D"]
+[sub_resource type="CircleShape2D" id=3]
+
+custom_solver_bias = 0.0
+radius = 16.8203
+
+[node name="Hero" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
 collision_mask = 30
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="EquipmentManager" type="Node" parent="." index="0"]
 
@@ -54,5 +60,16 @@ position = Vector2( 0, -23.4518 )
 scale = Vector2( 1, 0.734474 )
 shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="ShrinkSprite" type="Sprite" parent="." index="4"]
+
+visible = false
+texture = ExtResource( 4 )
+
+[node name="ShrinkCollisionShape2D" type="CollisionShape2D" parent="." index="5"]
+
+visible = false
+shape = SubResource( 3 )
+disabled = true
 
 
