@@ -1,7 +1,9 @@
 extends StaticBody2D
 
+signal give_equipment
+
 var body_in_interaction_area
-var equipment = "Boots"
+export (String) var equipment = "Boots"
 
 func _ready():
 	$InteractionArea.connect("body_entered", self, "_on_InteractionArea_body_entered")
@@ -15,6 +17,7 @@ func interact():
 	$PopupTimer.start()
 	yield($PopupTimer, "timeout")
 	$HelpPopup.hide()
+	emit_signal("give_equipment", equipment)
 
 func _on_InteractionArea_body_entered(body):
 	body_in_interaction_area = body
