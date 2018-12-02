@@ -35,3 +35,5 @@ func _on_Hero_interacting(hero):
 
 func _on_Victim_give_equipment(equipment):
 	$Hero/EquipmentManager.lose_equipment(equipment)
+	if equipment == "Suit":
+		$HealthControl.set_max_health(1)

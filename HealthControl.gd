@@ -5,7 +5,8 @@ signal zero_health
 var health_amount = 3
 
 func _ready():
-	_set_health(3)
+	_set_health(health_amount)
+	set_max_health(health_amount)
 
 func _get_heart_controls():
 	return [$HeartControl,$HeartControl2,$HeartControl3]
@@ -32,3 +33,11 @@ func change_health(difference):
 
 func get_health():
 	return health_amount
+
+func set_max_health(value):
+	var h = _get_heart_controls()
+	for i in range(min(value, h.size())):
+		h[i].visible = true
+	for i in range(value, h.size()):
+		h[i].visible = false
+	health_amount = min(health_amount, value)
