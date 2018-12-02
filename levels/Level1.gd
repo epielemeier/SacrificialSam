@@ -1,5 +1,8 @@
 extends Node
 
+# class member variables go here, for example:
+# var a = 2
+# var b = "textvar"
 
 func _ready():
 	for child in $Spikes.get_children():
@@ -15,7 +18,7 @@ func _ready():
 	$Hero.connect("interacting", self, "_on_Hero_interacting")
 	$Tank.connect("bullet_hit", self, "_on_Bullet_hit")
 	$HealthControl.connect("zero_health", self, "_on_HealthControl_zero_health")
-	$Gate.connect("next_level", self, "_on_Gate_next_level")
+
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
@@ -43,6 +46,7 @@ func _on_HeartCollectible_body_entered(body, collectible):
 		if $HealthControl.get_health_lost() > 0:
 			$HealthControl.change_health(1)
 			collectible.queue_free()
+			
 
 func _on_HealthControl_zero_health():
 	get_tree().reload_current_scene()
@@ -55,8 +59,3 @@ func _on_Victim_give_equipment(equipment):
 	$Hero/EquipmentManager.lose_equipment(equipment)
 	if equipment == "Suit":
 		$HealthControl.set_max_health(1)
-
-func _on_Gate_next_level(level):
-	var t = get_tree()
-	t.change_scene_to(level)
-	queue_free()

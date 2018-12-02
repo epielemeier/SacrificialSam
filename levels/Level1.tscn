@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Level.gd" type="Script" id=1]
 [ext_resource path="res://Hero.tscn" type="PackedScene" id=2]
@@ -11,24 +11,21 @@
 [ext_resource path="res://Door.tscn" type="PackedScene" id=9]
 [ext_resource path="res://PressurePlate.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Gate.tscn" type="PackedScene" id=11]
-[ext_resource path="res://levels/Level1.tscn" type="PackedScene" id=12]
 
-[node name="Level" type="Node"]
+[node name="Level1" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
 [node name="Hero" parent="." index="0" instance=ExtResource( 2 )]
 
-position = Vector2( 374.292, 250.001 )
+position = Vector2( 390, 390 )
 
 [node name="Tiles" type="Node2D" parent="." index="1"]
 
-editor/display_folded = true
-
 [node name="Tile" parent="Tiles" index="0" instance=ExtResource( 3 )]
 
-position = Vector2( 360.888, 318.374 )
-scale = Vector2( 4.93136, 1 )
+position = Vector2( 356.542, 318.374 )
+scale = Vector2( 4.79555, 1 )
 
 [node name="Tile2" parent="Tiles" index="1" instance=ExtResource( 3 )]
 
@@ -113,6 +110,5 @@ position = Vector2( 320, 280 )
 [node name="Gate" parent="." index="9" instance=ExtResource( 11 )]
 
 position = Vector2( 240, 260 )
-level = ExtResource( 12 )
 
 
