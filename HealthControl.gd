@@ -2,13 +2,14 @@ extends HBoxContainer
 
 signal zero_health
 
-var health_amount = 3
+var max_health_amount = 3
+var health_amount = max_health_amount
 var cur_waterbreathing_amount = 0
 var is_holding_breath = false
 
 func _ready():
-	_set_health(health_amount)
-	set_max_health(health_amount)
+	_set_health(max_health_amount)
+	set_max_health(max_health_amount)
 	$HoldBreathTimer.connect("timeout", self, "_on_HoldBreathTimer_timeout")
 
 func _process(delta):
@@ -38,13 +39,16 @@ func _set_health(amount):
 		i += 1
 
 func change_health(difference):
-	health_amount += difference
+	health_amount = max(0,min(health_amount + difference, max_health_amount))
 	_set_health(health_amount)
-	if health_amount <= 0:
+	if health_amount == 0:
 		emit_signal("zero_health")
 
 func get_health():
 	return health_amount
+
+func get_health_lost():
+	return max_health_amount - health_amount
 
 func set_max_health(value):
 	var h = _get_heart_controls()

@@ -10,6 +10,8 @@ func _ready():
 	for child in $WaterTiles.get_children():
 		child.connect("area_entered", self, "_on_WaterTile_area_entered")
 		child.connect("area_exited", self, "_on_WaterTile_area_exited")
+	for child in $HeartCollectibles.get_children():
+		child.connect("body_entered", self, "_on_HeartCollectible_body_entered", [child])
 	$Victim.connect("give_equipment", self, "_on_Victim_give_equipment")
 	$Hero.connect("interacting", self, "_on_Hero_interacting")
 	$Tank.connect("bullet_hit", self, "_on_Bullet_hit")
@@ -36,6 +38,13 @@ func _on_WaterTile_area_exited(area):
 func _on_Bullet_hit(body):
 	if body == $Hero:
 		$HealthControl.change_health(-0.5)
+
+func _on_HeartCollectible_body_entered(body, collectible):
+	if body == $Hero:
+		if $HealthControl.get_health_lost() > 0:
+			$HealthControl.change_health(1)
+			collectible.queue_free()
+			
 
 func _on_HealthControl_zero_health():
 	get_tree().reload_current_scene()

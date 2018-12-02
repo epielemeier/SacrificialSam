@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Level.gd" type="Script" id=1]
 [ext_resource path="res://Hero.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://HealthControl.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Victim.tscn" type="PackedScene" id=8]
 [ext_resource path="res://TriTank.tscn" type="PackedScene" id=9]
+[ext_resource path="res://HeartCollectible.tscn" type="PackedScene" id=10]
 
 [node name="Level" type="Node" index="0"]
 
@@ -64,6 +65,8 @@ scale = Vector2( 5.28495, 1 )
 
 [node name="WaterTiles" type="Node2D" parent="." index="2"]
 
+editor/display_folded = true
+
 [node name="WaterTile" parent="WaterTiles" index="0" instance=ExtResource( 4 )]
 
 position = Vector2( 735.007, 181.262 )
@@ -91,5 +94,11 @@ equipment = "Belt"
 [node name="TriTank" parent="." index="7" instance=ExtResource( 9 )]
 
 position = Vector2( 711.67, 331.02 )
+
+[node name="HeartCollectibles" type="Node2D" parent="." index="8"]
+
+[node name="HeartCollectible" parent="HeartCollectibles" index="0" instance=ExtResource( 10 )]
+
+position = Vector2( 652.085, 120.42 )
 
 
