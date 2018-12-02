@@ -85,8 +85,8 @@ editor/display_folded = false
 
 [node name="WaterTile" parent="WaterTiles" index="0"]
 
-position = Vector2( 494, 510 )
-scale = Vector2( 13.3125, 1 )
+position = Vector2( 490, 510 )
+scale = Vector2( 13.4375, 1 )
 
 [node name="Spikes" parent="." index="4"]
 
@@ -155,11 +155,5 @@ _sections_unfolded = [ "Collision", "Transform" ]
 position = Vector2( 328, 262 )
 scale = Vector2( 1, -0.875113 )
 _sections_unfolded = [ "Collision", "Transform" ]
-
-[node name="Tank" parent="Tanks" index="0"]
-
-starting_head_rotation_degrees = 0
-visibility_modifier = 1
-shoot_wait_time = 1
 
 

@@ -11,7 +11,8 @@ func _ready():
 	register_tanks($Tanks.get_children())
 	register_heart_collectibles($HeartCollectibles.get_children())
 	#register_pressure_plate_and_door($PressurePlate, $Door)
-	#register_victim($Victim)
+	if get_node("Victim") != null:
+		register_victim($Victim)
 
 func register_spikes(spike_list):
 	for n in spike_list:

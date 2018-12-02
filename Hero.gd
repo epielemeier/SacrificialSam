@@ -168,5 +168,7 @@ func toggle_shrink():
 	rotation = 0.0
 
 
-func _on_EquipmentManager_change_sprite(file):
-	$Sprite.set_texture(load(file))
+func _on_EquipmentManager_change_sprite(texture):
+	$AnimatedSprite.frames.add_frame("default", texture)
+	$AnimatedSprite.frame += 1
+	$AnimatedSprite.frames.remove_frame("default", 0)

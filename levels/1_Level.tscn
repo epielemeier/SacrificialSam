@@ -57,10 +57,4 @@ position = Vector2( 503.541, 569.743 )
 scale = Vector2( -0.96875, 0.929477 )
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="Tank" parent="Tanks" index="0"]
-
-starting_head_rotation_degrees = 0
-visibility_modifier = 1
-shoot_wait_time = 1
-
 
