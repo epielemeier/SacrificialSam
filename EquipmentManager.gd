@@ -12,6 +12,13 @@ func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	pass
+	
+func _on_Hero_end_walk(animated_sprite):
+	animated_sprite.animation = "default"
+
+func _on_Hero_start_walk(animated_sprite):
+	animated_sprite.animation = "walk"
+	animated_sprite.play()
 
 func lose_equipment(equipment):
 	var new_file = "res://art/hero_"

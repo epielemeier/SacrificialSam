@@ -1,6 +1,8 @@
 extends KinematicBody2D
 
 signal interacting
+signal start_walk
+signal end_walk
 
 # copied and modified from https://github.com/godotengine/godot-demo-projects/blob/master/2d/kinematic_character/player.gd
 const SPEEDUP = 2
@@ -50,6 +52,11 @@ func _physics_process(delta):
 	var interact = !shrinking and Input.is_action_just_pressed("interact")
 	var shrunk = Input.is_action_just_pressed("shrink")
 	
+	if flying or (!walk_left and !walk_right):
+		emit_signal("end_walk", $AnimatedSprite)
+	else:
+		emit_signal("start_walk", $AnimatedSprite)
+	
 	var stop = true
 	
 	if shrunk:
@@ -62,7 +69,7 @@ func _physics_process(delta):
 			force.x -= WALK_FORCE
 			stop = false
 			is_facing_left = true
-			$Sprite.flip_h = true
+			$AnimatedSprite.flip_h = true
 			if shrinking:
 				rotation -= PI/10
 			
@@ -71,7 +78,7 @@ func _physics_process(delta):
 			force.x += WALK_FORCE
 			stop = false
 			is_facing_left = false
-			$Sprite.flip_h = false
+			$AnimatedSprite.flip_h = false
 			if shrinking:
 				rotation += PI/10
 	
@@ -142,6 +149,8 @@ func _physics_process(delta):
 
 func _ready():
 	$EquipmentManager.connect("change_sprite", self, "_on_EquipmentManager_change_sprite")
+	self.connect("start_walk", $EquipmentManager, "_on_Hero_start_walk")
+	self.connect("end_walk", $EquipmentManager, "_on_Hero_end_walk")
 
 func toggle_shrink():
 	shrinking = !shrinking
