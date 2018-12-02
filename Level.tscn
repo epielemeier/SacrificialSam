@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Level.gd" type="Script" id=1]
 [ext_resource path="res://Hero.tscn" type="PackedScene" id=2]
@@ -8,8 +8,9 @@
 [ext_resource path="res://Tank.tscn" type="PackedScene" id=6]
 [ext_resource path="res://HealthControl.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Victim.tscn" type="PackedScene" id=8]
+[ext_resource path="res://TriTank.tscn" type="PackedScene" id=9]
 
-[node name="Level" type="Node"]
+[node name="Level" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -86,5 +87,9 @@ position = Vector2( 645.992, 383.268 )
 
 position = Vector2( 238.568, 252.2 )
 equipment = "Belt"
+
+[node name="TriTank" parent="." index="7" instance=ExtResource( 9 )]
+
+position = Vector2( 711.67, 331.02 )
 
 
