@@ -17,8 +17,8 @@ const WALK_MAX_SPEED = 150 * SPEEDUP
 const STOP_FORCE = 1300 * SPEEDUP
 const JUMP_SPEED = 300 * SPEEDUP
 const JUMP_MAX_AIRBORNE_TIME = 0.2
-const DASH_SPEED = 400 * SPEEDUP
-const DASH_MAX_TIME = 2
+const DASH_SPEED = 600 * SPEEDUP
+const DASH_MAX_TIME = .2
 const FLY_GRAVITY = GRAVITY * .25 * SPEEDUP
 
 const SLIDE_STOP_VELOCITY = 1.0 # one pixel/second
@@ -94,10 +94,15 @@ func _physics_process(delta):
 
 	
 	if dashing:
-		if dash_time < DASH_MAX_TIME:
+		if dash_time > DASH_MAX_TIME:
 			dashing = false
 			dash_time = 0
 			stop = true
+			if is_facing_left:
+				velocity.x = -WALK_MAX_SPEED
+			else:
+				velocity.x = WALK_MAX_SPEED
+			velocity.y = GRAVITY
 		else:
 			dash_time += delta
 	
@@ -136,9 +141,11 @@ func _physics_process(delta):
 	
 	if on_air_time < JUMP_MAX_AIRBORNE_TIME and dash and not prev_dash_pressed and not dashing:
 		if walk_left:
-			velocity.x = -DASH_SPEED
+			velocity.x = -(DASH_SPEED*cos(PI/24))
 		elif walk_right:
-			velocity.x = DASH_SPEED
+			velocity.x = DASH_SPEED*cos(PI/24)
+		if walk_left or walk_right:
+			velocity.y = 0-DASH_SPEED*sin(PI/24)
 		dashing = true
 		dash_time = 0
 

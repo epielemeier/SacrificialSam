@@ -8,7 +8,7 @@
 [ext_resource path="res://EquipmentManager.gd" type="Script" id=6]
 [ext_resource path="res://art/hero_super_size.png" type="Texture" id=7]
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
@@ -22,18 +22,18 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=2]
 
 custom_solver_bias = 0.0
 radius = 10.0
 height = 20.0
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 15.994, 10 )
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=4]
 
 custom_solver_bias = 0.0
 radius = 16.8203
@@ -49,7 +49,7 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
-frames = SubResource( 4 )
+frames = SubResource( 1 )
 animation = "walk"
 
 [node name="EquipmentManager" type="Node" parent="." index="1"]
@@ -60,7 +60,7 @@ script = ExtResource( 6 )
 
 position = Vector2( -0.163062, 2.35066 )
 scale = Vector2( 1.60813, 1.52634 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="HeadArea" type="Area2D" parent="." index="3"]
 
@@ -77,7 +77,7 @@ audio_bus_name = "Master"
 
 position = Vector2( 0, -23.4518 )
 scale = Vector2( 1, 0.734474 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="ShrinkSprite" type="Sprite" parent="." index="4"]
@@ -88,7 +88,7 @@ texture = ExtResource( 7 )
 [node name="ShrinkCollisionShape2D" type="CollisionShape2D" parent="." index="5"]
 
 visible = false
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 disabled = true
 
 
