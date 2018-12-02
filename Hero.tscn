@@ -38,7 +38,7 @@ extents = Vector2( 15.994, 10 )
 custom_solver_bias = 0.0
 radius = 16.8203
 
-[node name="Hero" type="KinematicBody2D" index="0"]
+[node name="Hero" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1

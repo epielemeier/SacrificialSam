@@ -155,7 +155,7 @@ func _ready():
 func toggle_shrink():
 	shrinking = !shrinking
 	$ShrinkSprite.visible = shrinking
-	$Sprite.visible = !shrinking
+	$AnimatedSprite.visible = !shrinking
 	$ShrinkCollisionShape2D.disabled = !shrinking
 	$CollisionShape2D.disabled = shrinking
 	rotation = 0.0

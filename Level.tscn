@@ -7,10 +7,10 @@
 [ext_resource path="res://Spikes.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Tank.tscn" type="PackedScene" id=6]
 [ext_resource path="res://HealthControl.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Victim.tscn" type="PackedScene" id=8]
-[ext_resource path="res://HeartCollectible.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Door.tscn" type="PackedScene" id=10]
-[ext_resource path="res://PressurePlate.tscn" type="PackedScene" id=11]
+[ext_resource path="res://HeartCollectible.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Door.tscn" type="PackedScene" id=9]
+[ext_resource path="res://PressurePlate.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Box.tscn" type="PackedScene" id=11]
 
 [node name="Level" type="Node"]
 
@@ -92,26 +92,25 @@ position = Vector2( 645.992, 383.268 )
 
 [node name="HealthControl" parent="." index="5" instance=ExtResource( 7 )]
 
-[node name="Victim" parent="." index="6" instance=ExtResource( 8 )]
-
-position = Vector2( 238.568, 252.2 )
-equipment = "Belt"
-
-[node name="HeartCollectibles" type="Node2D" parent="." index="7"]
+[node name="HeartCollectibles" type="Node2D" parent="." index="6"]
 
 editor/display_folded = true
 
-[node name="HeartCollectible" parent="HeartCollectibles" index="0" instance=ExtResource( 9 )]
+[node name="HeartCollectible" parent="HeartCollectibles" index="0" instance=ExtResource( 8 )]
 
 position = Vector2( 652.085, 120.42 )
 
-[node name="Door" parent="." index="8" instance=ExtResource( 10 )]
+[node name="Door" parent="." index="7" instance=ExtResource( 9 )]
 
 position = Vector2( 443.163, 205.947 )
 scale = Vector2( 1.3176, 1.59375 )
 
-[node name="PressurePlate" parent="." index="9" instance=ExtResource( 11 )]
+[node name="PressurePlate" parent="." index="8" instance=ExtResource( 10 )]
 
 position = Vector2( 320, 280 )
+
+[node name="Box" parent="." index="9" instance=ExtResource( 11 )]
+
+position = Vector2( 320, 270 )
 
 
