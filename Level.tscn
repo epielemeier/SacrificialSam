@@ -1,68 +1,72 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Level.gd" type="Script" id=1]
-[ext_resource path="res://HealthControl.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Hero.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Gate.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Tile.tscn" type="PackedScene" id=5]
-[ext_resource path="res://WaterTile.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Spikes.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Tank.tscn" type="PackedScene" id=8]
-[ext_resource path="res://HeartCollectible.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Hero.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Gate.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Tile.tscn" type="PackedScene" id=4]
+[ext_resource path="res://WaterTile.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Spikes.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Tank.tscn" type="PackedScene" id=7]
+[ext_resource path="res://HeartCollectible.tscn" type="PackedScene" id=8]
+[ext_resource path="res://HealthControl.tscn" type="PackedScene" id=9]
 
-[node name="Level" type="Node" index="0"]
+[node name="Level" type="Node"]
 
 script = ExtResource( 1 )
 
-[node name="HealthControl" parent="." index="0" instance=ExtResource( 2 )]
-
-[node name="Hero" parent="." index="1" instance=ExtResource( 3 )]
+[node name="Hero" parent="." index="0" instance=ExtResource( 2 )]
 
 position = Vector2( 374.292, 250.001 )
 
-[node name="Gate" parent="." index="2" instance=ExtResource( 4 )]
+[node name="Gate" parent="." index="1" instance=ExtResource( 3 )]
 
 position = Vector2( 240, 260 )
 
-[node name="Tiles" type="Node2D" parent="." index="3"]
+[node name="Tiles" type="Node2D" parent="." index="2"]
 
-editor/display_folded = true
+position = Vector2( -50, 210 )
 
-[node name="Tile" parent="Tiles" index="0" instance=ExtResource( 5 )]
+[node name="Tile" parent="Tiles" index="0" instance=ExtResource( 4 )]
 
-position = Vector2( 360.888, 318.374 )
+position = Vector2( 360, 110 )
 scale = Vector2( 4.93136, 1 )
 
-[node name="WaterTiles" type="Node2D" parent="." index="4"]
+[node name="WaterTiles" type="Node2D" parent="." index="3"]
 
 editor/display_folded = true
+position = Vector2( -110, 210 )
 
-[node name="WaterTile" parent="WaterTiles" index="0" instance=ExtResource( 6 )]
+[node name="WaterTile" parent="WaterTiles" index="0" instance=ExtResource( 5 )]
 
-position = Vector2( -518, 102 )
+position = Vector2( -346, 72 )
 
-[node name="Spikes" type="Node2D" parent="." index="5"]
-
-editor/display_folded = true
-
-[node name="Spikes" parent="Spikes" index="0" instance=ExtResource( 7 )]
-
-position = Vector2( -518, 202 )
-
-[node name="Tanks" type="Node2D" parent="." index="6"]
+[node name="Spikes" type="Node2D" parent="." index="4"]
 
 editor/display_folded = true
+position = Vector2( -130, 220 )
 
-[node name="Tank" parent="Tanks" index="0" instance=ExtResource( 8 )]
+[node name="Spikes" parent="Spikes" index="0" instance=ExtResource( 6 )]
 
-position = Vector2( -518, 322 )
+position = Vector2( -346, 172 )
 
-[node name="HeartCollectibles" type="Node2D" parent="." index="7"]
+[node name="Tanks" type="Node2D" parent="." index="5"]
 
 editor/display_folded = true
+position = Vector2( -200, 180 )
 
-[node name="HeartCollectible" parent="HeartCollectibles" index="0" instance=ExtResource( 9 )]
+[node name="Tank" parent="Tanks" index="0" instance=ExtResource( 7 )]
 
-position = Vector2( -520, 430 )
+position = Vector2( -346, 292 )
+
+[node name="HeartCollectibles" type="Node2D" parent="." index="6"]
+
+editor/display_folded = true
+position = Vector2( -210, -10 )
+
+[node name="HeartCollectible" parent="HeartCollectibles" index="0" instance=ExtResource( 8 )]
+
+position = Vector2( -348, 400 )
+
+[node name="HealthControl" parent="." index="7" instance=ExtResource( 9 )]
 
 

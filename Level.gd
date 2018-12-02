@@ -1,5 +1,6 @@
 extends Node
 
+var victim = null
 
 func _ready():
 	register_health_control($HealthControl)
@@ -29,8 +30,9 @@ func register_pressure_plate_and_door(pressure_plate, door):
 	pressure_plate.connect("is_pressed", door, "open")
 	pressure_plate.connect("is_not_pressed", door, "close")
 
-func register_victim(victim):
-	victim.connect("give_equipment", self, "_on_Victim_give_equipment")
+func register_victim(v):
+	v.connect("give_equipment", self, "_on_Victim_give_equipment")
+	victim = v
 
 func register_hero(hero):
 	hero.connect("interacting", self, "_on_Hero_interacting")
@@ -76,8 +78,8 @@ func _on_HealthControl_zero_health():
 	get_tree().reload_current_scene()
 
 func _on_Hero_interacting(hero):
-		if $Victim.is_interacting_with(hero):
-			$Victim.interact()
+		if victim != null and victim.is_interacting_with(hero):
+			victim.interact()
 
 func _on_Victim_give_equipment(equipment):
 	$Hero/EquipmentManager.lose_equipment(equipment)
