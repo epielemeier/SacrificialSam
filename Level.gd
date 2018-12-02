@@ -12,6 +12,8 @@ func _ready():
 		child.connect("area_exited", self, "_on_WaterTile_area_exited")
 	for child in $HeartCollectibles.get_children():
 		child.connect("body_entered", self, "_on_HeartCollectible_body_entered", [child])
+	$PressurePlate.connect("body_entered", $Door, "open")
+	$PressurePlate.connect("body_exited", $Door, "close")
 	$Victim.connect("give_equipment", self, "_on_Victim_give_equipment")
 	$Hero.connect("interacting", self, "_on_Hero_interacting")
 	$Tank.connect("bullet_hit", self, "_on_Bullet_hit")

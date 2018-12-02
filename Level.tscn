@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Level.gd" type="Script" id=1]
 [ext_resource path="res://Hero.tscn" type="PackedScene" id=2]
@@ -8,10 +8,11 @@
 [ext_resource path="res://Tank.tscn" type="PackedScene" id=6]
 [ext_resource path="res://HealthControl.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Victim.tscn" type="PackedScene" id=8]
-[ext_resource path="res://TriTank.tscn" type="PackedScene" id=9]
-[ext_resource path="res://HeartCollectible.tscn" type="PackedScene" id=10]
+[ext_resource path="res://HeartCollectible.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Door.tscn" type="PackedScene" id=10]
+[ext_resource path="res://PressurePlate.tscn" type="PackedScene" id=11]
 
-[node name="Level" type="Node" index="0"]
+[node name="Level" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -63,6 +64,11 @@ scale = Vector2( 2.0716, 1 )
 position = Vector2( 744.658, 246.02 )
 scale = Vector2( 5.28495, 1 )
 
+[node name="Tile9" parent="Tiles" index="8" instance=ExtResource( 3 )]
+
+position = Vector2( 443.059, 73.0086 )
+scale = Vector2( 1, 2.22389 )
+
 [node name="WaterTiles" type="Node2D" parent="." index="2"]
 
 editor/display_folded = true
@@ -91,14 +97,21 @@ position = Vector2( 645.992, 383.268 )
 position = Vector2( 238.568, 252.2 )
 equipment = "Belt"
 
-[node name="TriTank" parent="." index="7" instance=ExtResource( 9 )]
+[node name="HeartCollectibles" type="Node2D" parent="." index="7"]
 
-position = Vector2( 711.67, 331.02 )
+editor/display_folded = true
 
-[node name="HeartCollectibles" type="Node2D" parent="." index="8"]
-
-[node name="HeartCollectible" parent="HeartCollectibles" index="0" instance=ExtResource( 10 )]
+[node name="HeartCollectible" parent="HeartCollectibles" index="0" instance=ExtResource( 9 )]
 
 position = Vector2( 652.085, 120.42 )
+
+[node name="Door" parent="." index="8" instance=ExtResource( 10 )]
+
+position = Vector2( 443.163, 205.947 )
+scale = Vector2( 1.3176, 1.59375 )
+
+[node name="PressurePlate" parent="." index="9" instance=ExtResource( 11 )]
+
+position = Vector2( 320, 280 )
 
 
