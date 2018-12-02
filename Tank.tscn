@@ -24,6 +24,9 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
 Bullet = ExtResource( 2 )
+starting_head_rotation_degrees = 0
+visibility_modifier = 1
+shoot_wait_time = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 

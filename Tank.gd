@@ -1,6 +1,9 @@
 extends KinematicBody2D
 
 export (PackedScene) var Bullet
+export (int) var starting_head_rotation_degrees = 0
+export (float) var visibility_modifier = 1
+export (float) var shoot_wait_time = 1
 
 signal bullet_hit
 
@@ -11,6 +14,9 @@ func _ready():
 	$Visibility.connect("body_entered", self, "_on_Visibility_body_entered")
 	$Visibility.connect("body_exited", self, "_on_Visibility_body_exited")
 	$ShootTimer.connect("timeout", self, "_on_ShootTimer_timeout")
+	rotate_head(deg2rad(starting_head_rotation_degrees))
+	$Visibility.scale *= visibility_modifier
+	$ShootTimer.wait_time = shoot_wait_time
 
 func _physics_process(delta):
 	if target:
