@@ -22,46 +22,43 @@ position = Vector2( 374.292, 250.001 )
 
 position = Vector2( 240, 260 )
 
-[node name="Tiles" type="Node2D" parent="." index="2"]
-
-position = Vector2( -50, 210 )
+[node name="Tiles" type="Node" parent="." index="2"]
 
 [node name="Tile" parent="Tiles" index="0" instance=ExtResource( 4 )]
 
-position = Vector2( 360, 110 )
+position = Vector2( 340, 330 )
 scale = Vector2( 4.93136, 1 )
 
-[node name="WaterTiles" type="Node2D" parent="." index="3"]
+[node name="WaterTiles" type="Node" parent="." index="3"]
 
 editor/display_folded = true
-position = Vector2( -110, 210 )
 
 [node name="WaterTile" parent="WaterTiles" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( -346, 72 )
 
-[node name="Spikes" type="Node2D" parent="." index="4"]
+[node name="Spikes" type="Node" parent="." index="4"]
 
 editor/display_folded = true
-position = Vector2( -130, 220 )
 
 [node name="Spikes" parent="Spikes" index="0" instance=ExtResource( 6 )]
 
 position = Vector2( -346, 172 )
 
-[node name="Tanks" type="Node2D" parent="." index="5"]
+[node name="Tanks" type="Node" parent="." index="5"]
 
 editor/display_folded = true
-position = Vector2( -200, 180 )
 
 [node name="Tank" parent="Tanks" index="0" instance=ExtResource( 7 )]
 
 position = Vector2( -346, 292 )
+starting_head_rotation_degrees = 0
+visibility_modifier = 1
+shoot_wait_time = 1
 
-[node name="HeartCollectibles" type="Node2D" parent="." index="6"]
+[node name="HeartCollectibles" type="Node" parent="." index="6"]
 
 editor/display_folded = true
-position = Vector2( -210, -10 )
 
 [node name="HeartCollectible" parent="HeartCollectibles" index="0" instance=ExtResource( 8 )]
 
