@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://HeartControl.gd" type="Script" id=1]
 [ext_resource path="res://art/heart_full.png" type="Texture" id=2]
 [ext_resource path="res://art/heart_half.png" type="Texture" id=3]
 [ext_resource path="res://art/heart_empty.png" type="Texture" id=4]
+[ext_resource path="res://WaterProgress.tscn" type="PackedScene" id=5]
 
 [node name="HeartControl" type="Control"]
 
@@ -76,5 +77,10 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 texture = ExtResource( 4 )
 stretch_mode = 0
+
+[node name="WaterProgress" parent="." index="3" instance=ExtResource( 5 )]
+
+visible = false
+max_value = 1.0
 
 

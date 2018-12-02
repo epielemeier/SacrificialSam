@@ -21,3 +21,8 @@ func set_empty_heart():
 	$FullTexture.visible = false
 	$HalfTexture.visible = false
 	$EmptyTexture.visible = true
+
+func set_water_progress(percent):
+	$WaterProgress.visible =  percent > 0
+	$WaterProgress.value = percent
+

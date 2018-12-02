@@ -7,6 +7,9 @@ extends Node
 func _ready():
 	for child in $Spikes.get_children():
 		child.connect("body_entered", self, "_on_Spikes_body_entered")
+	for child in $WaterTiles.get_children():
+		child.connect("area_entered", self, "_on_WaterTile_area_entered")
+		child.connect("area_exited", self, "_on_WaterTile_area_exited")
 	$Victim.connect("give_equipment", self, "_on_Victim_give_equipment")
 	$Hero.connect("interacting", self, "_on_Hero_interacting")
 	$Tank.connect("bullet_hit", self, "_on_Bullet_hit")
@@ -21,6 +24,14 @@ func _ready():
 func _on_Spikes_body_entered(body):
 	if body == $Hero:
 		$HealthControl.change_health(-$HealthControl.get_health())
+
+func _on_WaterTile_area_entered(area):
+	if area == $Hero/HeadArea && !$Hero/EquipmentManager.has_belt:
+		$HealthControl.set_is_holding_breath(true)
+
+func _on_WaterTile_area_exited(area):
+	if area == $Hero/HeadArea:
+		$HealthControl.set_is_holding_breath(false)
 
 func _on_Bullet_hit(body):
 	if body == $Hero:
