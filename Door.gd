@@ -1,16 +1,16 @@
 extends StaticBody2D
 
 func ready():
-	close(null)
+	close()
 
-func close(body):
+func close():
 	$DoorTween.interpolate_property($TextureProgress, "value",
 		$TextureProgress.value, 100, 1,
 		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$DoorTween.start()
 	$CollisionShape2D.disabled = false
 
-func open(body):
+func open():
 	$DoorTween.interpolate_property($TextureProgress, "value",
 		$TextureProgress.value, 20, 1,
 		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)

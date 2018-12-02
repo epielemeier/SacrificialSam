@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Level.gd" type="Script" id=1]
 [ext_resource path="res://Hero.tscn" type="PackedScene" id=2]
@@ -10,9 +10,8 @@
 [ext_resource path="res://HeartCollectible.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Door.tscn" type="PackedScene" id=9]
 [ext_resource path="res://PressurePlate.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Box.tscn" type="PackedScene" id=11]
 
-[node name="Level" type="Node"]
+[node name="Level" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -108,9 +107,5 @@ scale = Vector2( 1.3176, 1.59375 )
 [node name="PressurePlate" parent="." index="8" instance=ExtResource( 10 )]
 
 position = Vector2( 320, 280 )
-
-[node name="Box" parent="." index="9" instance=ExtResource( 11 )]
-
-position = Vector2( 320, 270 )
 
 
