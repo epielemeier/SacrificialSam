@@ -2,20 +2,48 @@ extends Node
 
 
 func _ready():
-	for child in $Spikes.get_children():
-		child.connect("body_entered", self, "_on_Spikes_body_entered")
-	for child in $WaterTiles.get_children():
-		child.connect("area_entered", self, "_on_WaterTile_area_entered")
-		child.connect("area_exited", self, "_on_WaterTile_area_exited")
-	for child in $HeartCollectibles.get_children():
-		child.connect("body_entered", self, "_on_HeartCollectible_body_entered", [child])
-	$PressurePlate.connect("is_pressed", $Door, "open")
-	$PressurePlate.connect("is_not_pressed", $Door, "close")
-	#$Victim.connect("give_equipment", self, "_on_Victim_give_equipment")
-	$Hero.connect("interacting", self, "_on_Hero_interacting")
-	$Tank.connect("bullet_hit", self, "_on_Bullet_hit")
-	$HealthControl.connect("zero_health", self, "_on_HealthControl_zero_health")
-	$Gate.connect("next_level", self, "_on_Gate_next_level")
+	register_health_control($HealthControl)
+	register_hero($Hero)
+	register_gate($Gate)
+	register_water_tiles($WaterTiles.get_children())
+	register_spikes($Spikes.get_children())
+	register_tanks($Tanks.get_children())
+	register_heart_collectibles($HeartCollectibles.get_children())
+	#register_pressure_plate_and_door($PressurePlate, $Door)
+	#register_victim($Victim)
+
+func register_spikes(spike_list):
+	for n in spike_list:
+		n.connect("body_entered", self, "_on_Spikes_body_entered")
+
+func register_water_tiles(water_tile_list):
+	for n in water_tile_list:
+		n.connect("area_entered", self, "_on_WaterTile_area_entered")
+		n.connect("area_exited", self, "_on_WaterTile_area_exited")
+
+func register_heart_collectibles(heart_collectible_list):
+	for n in heart_collectible_list:
+		n.connect("body_entered", self, "_on_HeartCollectible_body_entered", [n])
+
+func register_pressure_plate_and_door(pressure_plate, door):
+	pressure_plate.connect("is_pressed", door, "open")
+	pressure_plate.connect("is_not_pressed", door, "close")
+
+func register_victim(victim):
+	victim.connect("give_equipment", self, "_on_Victim_give_equipment")
+
+func register_hero(hero):
+	hero.connect("interacting", self, "_on_Hero_interacting")
+
+func register_tanks(tank_list):
+	for n in tank_list:
+		n.connect("bullet_hit", self, "_on_Bullet_hit")
+
+func register_health_control(health_control):
+	health_control.connect("zero_health", self, "_on_HealthControl_zero_health")
+
+func register_gate(gate):
+	gate.connect("next_level", self, "_on_Gate_next_level")
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
