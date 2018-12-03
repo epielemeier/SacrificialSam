@@ -17,6 +17,7 @@ config/icon="res://art/hero_head.png"
 [autoload]
 
 HealthControl="*res://HealthControl.tscn"
+EquipmentManager="*res://EquipmentManager.gd"
 
 [input]
 

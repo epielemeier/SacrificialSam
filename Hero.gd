@@ -45,13 +45,13 @@ func _physics_process(delta):
 	
 	var walk_left = Input.is_action_pressed("ui_left")
 	var walk_right = Input.is_action_pressed("ui_right")
-	var fly_up = Input.is_action_pressed("ui_up") and $EquipmentManager.has_cape
-	var fly_down = Input.is_action_pressed("ui_down") and $EquipmentManager.has_cape
+	var fly_up = Input.is_action_pressed("ui_up") and EquipmentManager.has_cape
+	var fly_down = Input.is_action_pressed("ui_down") and EquipmentManager.has_cape
 	var jump = Input.is_action_pressed("ui_select")
-	var dash = !shrinking and Input.is_action_pressed("dash") and $EquipmentManager.has_boots
+	var dash = !shrinking and Input.is_action_pressed("dash") and EquipmentManager.has_boots
 	var interact = !shrinking and Input.is_action_just_pressed("interact")
-	var shrunk = Input.is_action_just_pressed("shrink") and $EquipmentManager.has_s
-	if shrinking and !$EquipmentManager.has_s:
+	var shrunk = Input.is_action_just_pressed("shrink") and EquipmentManager.has_s
+	if shrinking and !EquipmentManager.has_s:
 		toggle_shrink()
 	
 	#if flying or (!walk_left and !walk_right):
@@ -160,9 +160,9 @@ func _physics_process(delta):
 	prev_dash_pressed = dash
 
 func _ready():
-	$EquipmentManager.connect("change_sprite", self, "_on_EquipmentManager_change_sprite")
-	self.connect("start_walk", $EquipmentManager, "_on_Hero_start_walk")
-	self.connect("end_walk", $EquipmentManager, "_on_Hero_end_walk")
+	EquipmentManager.connect("change_sprite", self, "_on_EquipmentManager_change_sprite")
+	self.connect("start_walk", EquipmentManager, "_on_Hero_start_walk")
+	self.connect("end_walk", EquipmentManager, "_on_Hero_end_walk")
 
 func toggle_shrink():
 	shrinking = !shrinking

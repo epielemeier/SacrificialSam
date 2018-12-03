@@ -51,8 +51,8 @@ scale = Vector2( 6.07814, 0.828125 )
 
 [node name="Tile17" parent="Tiles" index="6" instance=ExtResource( 3 )]
 
-position = Vector2( 598.24, 337.359 )
-scale = Vector2( 1.66992, 0.257813 )
+position = Vector2( 524.359, 337.359 )
+scale = Vector2( 3.9787, 0.257813 )
 
 [node name="Tile14" parent="Tiles" index="7" instance=ExtResource( 3 )]
 

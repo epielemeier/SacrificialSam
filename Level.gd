@@ -59,7 +59,7 @@ func _on_Spikes_body_entered(body):
 		HealthControl.change_health(-HealthControl.get_health())
 
 func _on_WaterTile_area_entered(area):
-	if area == $Hero/HeadArea && !$Hero/EquipmentManager.has_belt:
+	if area == $Hero/HeadArea && !EquipmentManager.has_belt:
 		HealthControl.set_is_holding_breath(true)
 
 func _on_WaterTile_area_exited(area):
@@ -85,7 +85,7 @@ func _on_Hero_interacting(hero):
 			victim.interact()
 
 func _on_Victim_give_equipment(equipment):
-	$Hero/EquipmentManager.lose_equipment(equipment)
+	EquipmentManager.lose_equipment(equipment)
 	if equipment == "Suit":
 		HealthControl.set_max_health(1)
 
