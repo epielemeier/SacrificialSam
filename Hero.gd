@@ -139,6 +139,8 @@ func _physics_process(delta):
 		# Makes controls more snappy.
 		velocity.y = -JUMP_SPEED
 		jumping = true
+		if not flying:
+			$JumpAudio.play()
 	
 	
 	if on_air_time < JUMP_MAX_AIRBORNE_TIME and dash and not prev_dash_pressed and not dashing:
@@ -150,6 +152,7 @@ func _physics_process(delta):
 			velocity.y = 0-DASH_SPEED*sin(PI/24)
 		dashing = true
 		dash_time = 0
+		$DashAudio.play()
 
 	
 	on_air_time += delta
@@ -168,6 +171,7 @@ func toggle_shrink():
 	$ShrinkCollisionShape2D.disabled = !shrinking
 	$CollisionShape2D.disabled = shrinking
 	rotation = 0.0
+	$ShrinkAudio.play()
 
 
 func _on_EquipmentManager_change_sprite(texture):

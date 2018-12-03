@@ -22,6 +22,7 @@ func interact():
 	$HelpPopup.hide()
 	$Sprite.texture = happy_texture
 	emit_signal("give_equipment", equipment)
+	$HappyAudio.play()
 
 func _on_InteractionArea_body_entered(body):
 	body_in_interaction_area = body

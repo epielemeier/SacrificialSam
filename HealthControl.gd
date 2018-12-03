@@ -43,6 +43,11 @@ func change_health(difference):
 	_set_health(health_amount)
 	if health_amount == 0:
 		emit_signal("zero_health")
+		$DeathAudio.play()
+	elif difference < 0:
+		$HitAudio.play()
+	elif difference != max_health_amount:
+		$RegenAudio.play()
 
 func get_health():
 	return health_amount

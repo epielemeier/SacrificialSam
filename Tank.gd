@@ -42,6 +42,7 @@ func shoot(pos):
 	b.start($Sprite/HeadSprite.to_global(offset), a + rand_range(-0.05, 0.05))
 	get_parent().add_child(b)
 	can_shoot = false
+	$ShootAudio.play()
 	$ShootTimer.start()
 
 func rotate_head(new_rotation):

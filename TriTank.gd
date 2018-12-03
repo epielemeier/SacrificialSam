@@ -23,6 +23,7 @@ func shoot_every_head():
 		Vector2(position.x + 1000, position.y), Vector2(.01,-1))
 	can_shoot = false
 	$ShootTimer.start()
+	$ShootAudio.play()
 
 func shoot(head_sprite, pos, off):
 	var b = Bullet.instance()
