@@ -4,7 +4,7 @@
 [ext_resource path="res://levels/6_Level.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Tile.tscn" type="PackedScene" id=3]
 
-[node name="4_Level" index="0" instance=ExtResource( 1 )]
+[node name="4_Level" instance=ExtResource( 1 )]
 
 [node name="Hero" parent="." index="0"]
 
