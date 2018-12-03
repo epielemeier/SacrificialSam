@@ -54,10 +54,10 @@ func _physics_process(delta):
 	if shrinking and !$EquipmentManager.has_s:
 		toggle_shrink()
 	
-	if flying or (!walk_left and !walk_right):
-		emit_signal("end_walk", $AnimatedSprite)
-	else:
-		emit_signal("start_walk", $AnimatedSprite)
+	#if flying or (!walk_left and !walk_right):
+	#	emit_signal("end_walk", $AnimatedSprite)
+	#else:
+	#	emit_signal("start_walk", $AnimatedSprite)
 	
 	var stop = true
 	

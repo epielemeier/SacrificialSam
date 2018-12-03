@@ -38,7 +38,7 @@ extents = Vector2( 15.994, 10 )
 custom_solver_bias = 0.0
 radius = 16.8203
 
-[node name="Hero" type="KinematicBody2D"]
+[node name="Hero" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -50,7 +50,7 @@ _sections_unfolded = [ "Collision" ]
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
 frames = SubResource( 1 )
-animation = "walk"
+animation = "default"
 
 [node name="EquipmentManager" type="Node" parent="." index="1"]
 
