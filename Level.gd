@@ -3,7 +3,7 @@ extends Node
 var victim = null
 
 func _ready():
-	register_health_control($HealthControl)
+	register_health_control(HealthControl)
 	register_hero($Hero)
 	register_gate($Gate)
 	register_water_tiles($WaterTiles.get_children())
@@ -56,24 +56,24 @@ func register_gate(gate):
 
 func _on_Spikes_body_entered(body):
 	if body == $Hero:
-		$HealthControl.change_health(-$HealthControl.get_health())
+		HealthControl.change_health(-HealthControl.get_health())
 
 func _on_WaterTile_area_entered(area):
 	if area == $Hero/HeadArea && !$Hero/EquipmentManager.has_belt:
-		$HealthControl.set_is_holding_breath(true)
+		HealthControl.set_is_holding_breath(true)
 
 func _on_WaterTile_area_exited(area):
 	if area == $Hero/HeadArea:
-		$HealthControl.set_is_holding_breath(false)
+		HealthControl.set_is_holding_breath(false)
 
 func _on_Bullet_hit(body):
 	if body == $Hero:
-		$HealthControl.change_health(-0.5)
+		HealthControl.change_health(-0.5)
 
 func _on_HeartCollectible_body_entered(body, collectible):
 	if body == $Hero:
-		if $HealthControl.get_health_lost() > 0:
-			$HealthControl.change_health(1)
+		if HealthControl.get_health_lost() > 0:
+			HealthControl.change_health(1)
 			collectible.queue_free()
 
 func _on_HealthControl_zero_health():
@@ -86,7 +86,7 @@ func _on_Hero_interacting(hero):
 func _on_Victim_give_equipment(equipment):
 	$Hero/EquipmentManager.lose_equipment(equipment)
 	if equipment == "Suit":
-		$HealthControl.set_max_health(1)
+		HealthControl.set_max_health(1)
 
 func _on_Gate_next_level(level):
 	var t = get_tree()

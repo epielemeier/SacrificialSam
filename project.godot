@@ -14,6 +14,10 @@ config/name="SuperDude"
 run/main_scene="res://levels/1_Level.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+HealthControl="*res://HealthControl.tscn"
+
 [input]
 
 dash=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":90,"unicode":0,"echo":false,"script":null)

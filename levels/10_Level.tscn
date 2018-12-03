@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Level.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Tile.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Door.tscn" type="PackedScene" id=3]
-[ext_resource path="res://PressurePlate.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Victim.tscn" type="PackedScene" id=5]
+[ext_resource path="res://levels/11_Level.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Tile.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Door.tscn" type="PackedScene" id=4]
+[ext_resource path="res://PressurePlate.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Victim.tscn" type="PackedScene" id=6]
 
 [node name="10_Level" instance=ExtResource( 1 )]
 
@@ -15,60 +16,69 @@ position = Vector2( 130.295, 508.581 )
 [node name="Gate" parent="." index="1"]
 
 position = Vector2( 888.197, 513.49 )
+level = ExtResource( 2 )
+
+[node name="Tiles" parent="." index="2"]
+
+editor/display_folded = true
 
 [node name="Tile" parent="Tiles" index="0"]
 
 position = Vector2( 515, 571.999 )
 scale = Vector2( 16.0938, 1 )
 
-[node name="Tile2" parent="Tiles" index="1" instance=ExtResource( 2 )]
+[node name="Tile2" parent="Tiles" index="1" instance=ExtResource( 3 )]
 
 position = Vector2( 896.964, 351.347 )
 scale = Vector2( 3.90823, 1 )
 
-[node name="Tile3" parent="Tiles" index="2" instance=ExtResource( 2 )]
+[node name="Tile3" parent="Tiles" index="2" instance=ExtResource( 3 )]
 
 position = Vector2( 991.395, 453.592 )
 scale = Vector2( 1, 2.68624 )
 
-[node name="Tile4" parent="Tiles" index="3" instance=ExtResource( 2 )]
+[node name="Tile4" parent="Tiles" index="3" instance=ExtResource( 3 )]
 
 position = Vector2( 803.552, 368.253 )
 scale = Vector2( 1, 1.47804 )
 
-[node name="Tile5" parent="Tiles" index="4" instance=ExtResource( 2 )]
+[node name="Tile5" parent="Tiles" index="4" instance=ExtResource( 3 )]
 
 position = Vector2( 34.8098, 381.905 )
 scale = Vector2( 1, 5.7607 )
 
-[node name="Tile10" parent="Tiles" index="5" instance=ExtResource( 2 )]
+[node name="Tile10" parent="Tiles" index="5" instance=ExtResource( 3 )]
 
-position = Vector2( 993.872, 345.175 )
-scale = Vector2( 1, 5.7607 )
+position = Vector2( 993.872, 360.819 )
+scale = Vector2( 1, 6.24958 )
 
-[node name="Tile6" parent="Tiles" index="6" instance=ExtResource( 2 )]
+[node name="Tile6" parent="Tiles" index="6" instance=ExtResource( 3 )]
 
 position = Vector2( 291.057, 442.217 )
 scale = Vector2( 1, 1.05085 )
 
-[node name="Tile8" parent="Tiles" index="7" instance=ExtResource( 2 )]
+[node name="Tile8" parent="Tiles" index="7" instance=ExtResource( 3 )]
 
 position = Vector2( 497.393, 378.909 )
 scale = Vector2( 2.8764, 1.05085 )
 
-[node name="Tile9" parent="Tiles" index="8" instance=ExtResource( 2 )]
+[node name="Tile9" parent="Tiles" index="8" instance=ExtResource( 3 )]
 
 position = Vector2( 681.043, 378.909 )
 scale = Vector2( 2.8764, 1.05085 )
 
-[node name="Tile7" parent="Tiles" index="9" instance=ExtResource( 2 )]
+[node name="Tile7" parent="Tiles" index="9" instance=ExtResource( 3 )]
 
 position = Vector2( 247.344, 491.493 )
 scale = Vector2( 1, 0.518146 )
 
+[node name="Spikes" parent="." index="3"]
+
+editor/display_folded = false
+
 [node name="Spikes" parent="Spikes" index="0"]
 
-position = Vector2( 460, 514.127 )
+position = Vector2( -131.619, 239.716 )
 scale = Vector2( 1, 0.871038 )
 
 [node name="WaterTiles" parent="." index="6"]
@@ -81,18 +91,19 @@ position = Vector2( 544.849, 452.232 )
 scale = Vector2( 14.9326, 2.80506 )
 _sections_unfolded = [ "Z Index" ]
 
-[node name="Door" parent="." index="8" instance=ExtResource( 3 )]
+[node name="Door" parent="." index="8" instance=ExtResource( 4 )]
 
 position = Vector2( 797.563, 469.682 )
 scale = Vector2( 1, 1.38722 )
 
-[node name="PressurePlate" parent="." index="9" instance=ExtResource( 4 )]
+[node name="PressurePlate" parent="." index="9" instance=ExtResource( 5 )]
 
 position = Vector2( 830.3, 313.778 )
 
-[node name="Victim" parent="." index="10" instance=ExtResource( 5 )]
+[node name="Victim" parent="." index="10" instance=ExtResource( 6 )]
 
 position = Vector2( 505.885, 312.177 )
+collision_mask = 0
 _sections_unfolded = [ "Collision", "Z Index" ]
 equipment = "Belt"
 

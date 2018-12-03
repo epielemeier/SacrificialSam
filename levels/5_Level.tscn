@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Level.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Tile.tscn" type="PackedScene" id=2]
-[ext_resource path="res://WaterTile.tscn" type="PackedScene" id=3]
+[ext_resource path="res://levels/10_Level.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Tile.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Spikes.tscn" type="PackedScene" id=4]
+[ext_resource path="res://WaterTile.tscn" type="PackedScene" id=5]
 
 [node name="5_Level" instance=ExtResource( 1 )]
 
@@ -14,17 +15,14 @@ position = Vector2( 107.804, 290.292 )
 [node name="Gate" parent="." index="1"]
 
 position = Vector2( 115.061, 447.39 )
+level = ExtResource( 2 )
 
-[node name="Tiles" parent="." index="2"]
-
-editor/display_folded = true
-
-[node name="Tile10" parent="Tiles" index="0" instance=ExtResource( 2 )]
+[node name="Tile10" parent="Tiles" index="0" instance=ExtResource( 3 )]
 
 position = Vector2( 505, 350.292 )
 scale = Vector2( 4.21875, 1 )
 
-[node name="Tile11" parent="Tiles" index="1" instance=ExtResource( 2 )]
+[node name="Tile11" parent="Tiles" index="1" instance=ExtResource( 3 )]
 
 position = Vector2( 828.125, 350.292 )
 scale = Vector2( 1.93361, 1 )
@@ -34,111 +32,67 @@ scale = Vector2( 1.93361, 1 )
 position = Vector2( 155, 350.292 )
 scale = Vector2( 2.96875, 1 )
 
-[node name="Tile2" parent="Tiles" index="3" instance=ExtResource( 2 )]
+[node name="Tile2" parent="Tiles" index="3" instance=ExtResource( 3 )]
 
-position = Vector2( 304.804, 290.292 )
-scale = Vector2( 4.15625, 1 )
+position = Vector2( 322.661, 290.292 )
+scale = Vector2( 4.71429, 1 )
 
-[node name="Tile5" parent="Tiles" index="4" instance=ExtResource( 2 )]
+[node name="Tile5" parent="Tiles" index="4" instance=ExtResource( 3 )]
 
-position = Vector2( 700.804, 292.292 )
-scale = Vector2( 4.15625, 1 )
+position = Vector2( 686.047, 292.292 )
+scale = Vector2( 4.6174, 1 )
 
-[node name="Tile8" parent="Tiles" index="5" instance=ExtResource( 2 )]
+[node name="Tile8" parent="Tiles" index="5" instance=ExtResource( 3 )]
 
 position = Vector2( 543.902, 71 )
 scale = Vector2( 15.1906, 1 )
 
-[node name="Tile3" parent="Tiles" index="6" instance=ExtResource( 2 )]
+[node name="Tile3" parent="Tiles" index="6" instance=ExtResource( 3 )]
 
 position = Vector2( 307.804, 230.292 )
 scale = Vector2( 1.8125, 1 )
 
-[node name="Tile15" parent="Tiles" index="7" instance=ExtResource( 2 )]
+[node name="Tile15" parent="Tiles" index="7" instance=ExtResource( 3 )]
 
 position = Vector2( 110.253, 509.212 )
 scale = Vector2( 1.59189, 1 )
 
-[node name="Tile6" parent="Tiles" index="8" instance=ExtResource( 2 )]
+[node name="Tile6" parent="Tiles" index="8" instance=ExtResource( 3 )]
 
 position = Vector2( 703.804, 232.292 )
 scale = Vector2( 1.8125, 1 )
 
-[node name="Tile7" parent="Tiles" index="9" instance=ExtResource( 2 )]
+[node name="Tile7" parent="Tiles" index="9" instance=ExtResource( 3 )]
 
 position = Vector2( 497.804, 129 )
 scale = Vector2( 2, 1 )
 
-[node name="Tile14" parent="Tiles" index="10" instance=ExtResource( 2 )]
+[node name="Tile14" parent="Tiles" index="10" instance=ExtResource( 3 )]
 
 position = Vector2( 503.828, 570.052 )
 scale = Vector2( 14.1821, 1 )
 
-[node name="Tile12" parent="Tiles" index="11" instance=ExtResource( 2 )]
+[node name="Tile12" parent="Tiles" index="11" instance=ExtResource( 3 )]
 
 position = Vector2( 900, 129 )
 scale = Vector2( 2, 1 )
 
-[node name="Tile9" parent="Tiles" index="12" instance=ExtResource( 2 )]
+[node name="Tile9" parent="Tiles" index="12" instance=ExtResource( 3 )]
 
 position = Vector2( 120, 129 )
 scale = Vector2( 2, 1 )
 
-[node name="Tile4" parent="Tiles" index="13" instance=ExtResource( 2 )]
+[node name="Tile4" parent="Tiles" index="13" instance=ExtResource( 3 )]
 
 position = Vector2( 30, 319.758 )
 scale = Vector2( 1, 8.77368 )
 
-[node name="Tile13" parent="Tiles" index="14" instance=ExtResource( 2 )]
+[node name="Tile13" parent="Tiles" index="14" instance=ExtResource( 3 )]
 
 position = Vector2( 990, 350.783 )
 scale = Vector2( 1, 7.86822 )
 
-[node name="WaterTiles" parent="." index="3"]
-
-editor/display_folded = false
-
-[node name="WaterTile" parent="WaterTiles" index="0"]
-
-position = Vector2( 559.952, 460.603 )
-scale = Vector2( 12.4619, 2.441 )
-
-[node name="WaterTile2" parent="WaterTiles" index="1" instance=ExtResource( 3 )]
-
-position = Vector2( 924.44, 350.35 )
-scale = Vector2( 1.06869, 1.00288 )
-
-[node name="WaterTile3" parent="WaterTiles" index="2" instance=ExtResource( 3 )]
-
-position = Vector2( 895.833, 303.348 )
-scale = Vector2( 1.95961, 0.462747 )
-
-[node name="WaterTile4" parent="WaterTiles" index="3" instance=ExtResource( 3 )]
-
-position = Vector2( 502.956, 305.79 )
-scale = Vector2( 2.03125, 0.398437 )
-
-[node name="WaterTile6" parent="WaterTiles" index="4" instance=ExtResource( 3 )]
-
-position = Vector2( 310.203, 351.757 )
-scale = Vector2( 1.89116, 0.955897 )
-
-[node name="WaterTile7" parent="WaterTiles" index="5" instance=ExtResource( 3 )]
-
-position = Vector2( 703.285, 353.157 )
-scale = Vector2( 2.01013, 0.914081 )
-
-[node name="WaterTile5" parent="WaterTiles" index="6" instance=ExtResource( 3 )]
-
-position = Vector2( 116.857, 305.79 )
-scale = Vector2( 1.714, 0.398437 )
-
-[node name="WaterTile8" parent="WaterTiles" index="7" instance=ExtResource( 3 )]
-
-position = Vector2( 111.251, 429.848 )
-scale = Vector2( 1.55195, 1.48548 )
-
-[node name="Spikes" parent="." index="4"]
+[node name="Spikes" parent="." index="3"]
 
 editor/display_folded = false
 
@@ -172,12 +126,56 @@ position = Vector2( 670, 348.605 )
 scale = Vector2( 1, -0.947274 )
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="Tanks" parent="." index="5"]
+[node name="Tanks" parent="." index="4"]
 
 editor/display_folded = false
 
 [node name="Tank" parent="Tanks" index="0"]
 
 position = Vector2( 505.46, 286.057 )
+
+[node name="WaterTiles" parent="." index="6"]
+
+editor/display_folded = false
+
+[node name="WaterTile" parent="WaterTiles" index="0"]
+
+position = Vector2( 559.952, 460.603 )
+scale = Vector2( 12.4619, 2.441 )
+
+[node name="WaterTile2" parent="WaterTiles" index="1" instance=ExtResource( 5 )]
+
+position = Vector2( 924.44, 350.35 )
+scale = Vector2( 1.06869, 1.00288 )
+
+[node name="WaterTile3" parent="WaterTiles" index="2" instance=ExtResource( 5 )]
+
+position = Vector2( 895.833, 303.348 )
+scale = Vector2( 1.95961, 0.462747 )
+
+[node name="WaterTile4" parent="WaterTiles" index="3" instance=ExtResource( 5 )]
+
+position = Vector2( 502.956, 305.79 )
+scale = Vector2( 2.03125, 0.398437 )
+
+[node name="WaterTile6" parent="WaterTiles" index="4" instance=ExtResource( 5 )]
+
+position = Vector2( 310.203, 351.757 )
+scale = Vector2( 1.89116, 0.955897 )
+
+[node name="WaterTile7" parent="WaterTiles" index="5" instance=ExtResource( 5 )]
+
+position = Vector2( 703.285, 353.157 )
+scale = Vector2( 2.01013, 0.914081 )
+
+[node name="WaterTile5" parent="WaterTiles" index="6" instance=ExtResource( 5 )]
+
+position = Vector2( 116.857, 305.79 )
+scale = Vector2( 1.714, 0.398437 )
+
+[node name="WaterTile8" parent="WaterTiles" index="7" instance=ExtResource( 5 )]
+
+position = Vector2( 111.251, 429.848 )
+scale = Vector2( 1.55195, 1.48548 )
 
 

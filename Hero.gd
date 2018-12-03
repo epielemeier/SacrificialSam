@@ -50,7 +50,9 @@ func _physics_process(delta):
 	var jump = Input.is_action_pressed("ui_select")
 	var dash = !shrinking and Input.is_action_pressed("dash") and $EquipmentManager.has_boots
 	var interact = !shrinking and Input.is_action_just_pressed("interact")
-	var shrunk = Input.is_action_just_pressed("shrink")
+	var shrunk = Input.is_action_just_pressed("shrink") and $EquipmentManager.has_s
+	if shrinking and !$EquipmentManager.has_s:
+		toggle_shrink()
 	
 	if flying or (!walk_left and !walk_right):
 		emit_signal("end_walk", $AnimatedSprite)
