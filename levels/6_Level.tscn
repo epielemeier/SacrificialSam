@@ -80,7 +80,7 @@ scale = Vector2( 1, 5.9375 )
 
 position = Vector2( 820, 510 )
 
-[node name="Victim" parent="." index="8" instance=ExtResource( 4 )]
+[node name="Victim" parent="." index="7" instance=ExtResource( 4 )]
 
 position = Vector2( 210, 508.049 )
 _sections_unfolded = [ "Collision", "Transform" ]

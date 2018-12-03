@@ -1,5 +1,8 @@
 extends StaticBody2D
 
+var happy_texture = preload("res://art/victim_happy_with_help_sign.png")
+var boss_texture = preload("res://art/victim_happy.png")
+
 signal give_equipment
 
 var body_in_interaction_area
@@ -17,6 +20,7 @@ func interact():
 	$PopupTimer.start()
 	yield($PopupTimer, "timeout")
 	$HelpPopup.hide()
+	$Sprite.texture = happy_texture
 	emit_signal("give_equipment", equipment)
 
 func _on_InteractionArea_body_entered(body):
