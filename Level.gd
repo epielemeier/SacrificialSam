@@ -77,6 +77,7 @@ func _on_HeartCollectible_body_entered(body, collectible):
 			collectible.queue_free()
 
 func _on_HealthControl_zero_health():
+	HealthControl.change_health(HealthControl.get_health_lost())
 	get_tree().reload_current_scene()
 
 func _on_Hero_interacting(hero):

@@ -4,8 +4,8 @@ export (PackedScene) var HappyVictim
 
 func _ready():
 	get_node("../PressurePlate").connect("body_entered", self, "_on_PressurePlate_body_entered")
-	get_node("../Door1").open()
-	get_node("../Door2").open()
+	get_node("../Door1").open_no_tween()
+	get_node("../Door2").open_no_tween()
 
 func _on_PressurePlate_body_entered(body):
 	get_node("../Door1").close()
